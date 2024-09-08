@@ -29,6 +29,7 @@ def extract_transcript_details(youtube_video_url):
 
     except Exception as e:
         transcript="Some error occurs please try it again or check the link"
+        return transcript
     
 ## getting the summary based on Prompt from Google Gemini Pro
 def generate_gemini_content(transcript_text,prompt):
