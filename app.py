@@ -9,8 +9,8 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-prompt="""You are Yotube video summarizer. You will be taking the transcript text
-and summarizing the entire video and providing the important summary in points
+prompt="""You are Yotube video summarizer. You will be taking the transcript text if now provided then just say sorry please try it again otherwise 
+summarize the entire video and providing the important summary in points
 within 250 words. Please provide the summary of the text given here:  """
 
 
@@ -28,7 +28,7 @@ def extract_transcript_details(youtube_video_url):
         return transcript
 
     except Exception as e:
-        raise e
+        transcript="Some error occurs please try it again or check the link"
     
 ## getting the summary based on Prompt from Google Gemini Pro
 def generate_gemini_content(transcript_text,prompt):
